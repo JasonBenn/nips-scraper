@@ -1,6 +1,7 @@
-# NIPS 2017 Scraper
+# NIPS Scraper
 
-[NIPS 2017 Accepted Papers](https://nips.cc/Conferences/2017/AcceptedPapersInitial) have been released! IT HAS BEGUN.
+
+[NIPS 2017 Accepted Papers](https://nips.cc/Conferences/2017/AcceptedPapersInitial) have been released!
 
 This script scrapes Arxiv for their abstracts and collects them into [abstracts.md](https://github.com/JasonBenn/nips-scraper/blob/master/abstracts.md).
 

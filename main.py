@@ -44,7 +44,9 @@ def scrape(start_index):
         result = response.get('items')[0]
       except TypeError:
         # results.get('items') is prob None -- rate limit?
-        print response
+        f.write(u"%s\n\n" % response)
+        f.flush()
+        break
 
       arxiv_url = result["formattedUrl"]
 
