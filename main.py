@@ -58,6 +58,7 @@ def scrape(start_index):
         continue
 
       abstract = arxiv_url_to_abstract(arxiv_url)
+      f.write(u"[%s](%s)\n" % (arxiv_url, arxiv_url))
       f.write(abstract + u"\n\n")
       f.flush()
 
