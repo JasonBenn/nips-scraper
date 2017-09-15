@@ -38,4 +38,4 @@ class GoogleETL:
 
   def load(self, nips_paper_id, record):
     record["nips_paper_id"] = str(nips_paper_id)
-    self.db.insert("google_search_results", [record])
+    self.db.upsert_search_result(record)
