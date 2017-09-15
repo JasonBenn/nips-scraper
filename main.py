@@ -23,13 +23,10 @@ def scrape(start_index):
     titles = nips.transform(response)
     nips.load(titles)
 
-  for i, title in titles[start_index:][3:4]:
+  for i, title in titles[start_index:]:
     response = google.extract(title)
     search_result = google.transform(response)
-    print "search_result:"
-    print search_result
     if search_result:
-      print "found search_result"
       google.load(i, search_result)
       response = arxiv.extract(search_result["abstract_url"])
       abstract = arxiv.transform(response)

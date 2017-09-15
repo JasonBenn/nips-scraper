@@ -41,8 +41,9 @@ class DB:
     self.conn.commit()
 
   def to_md(self, filename):
-    with io.open(filename, encoding="utf8") as f:
-      from IPython import embed; embed()
+    print "to_md"
+    # with io.open(filename, encoding="utf8") as f:
+      # from IPython import embed; embed()
       # f.write(u"### #%s: %s\n" % (i + start_index, title))
       # # extract, transform
       # abstract = arxiv_url_to_abstract(arxiv_url)
