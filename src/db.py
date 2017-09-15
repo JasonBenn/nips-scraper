@@ -26,7 +26,9 @@ class DB:
       CREATE TABLE IF NOT EXISTS abstracts (
         id SERIAL PRIMARY KEY,
         nips_paper_id INTEGER UNIQUE REFERENCES nips_papers,
-        abstract TEXT
+        abstract TEXT,
+        authors TEXT,
+        category TEXT
       );
     ''')
 
