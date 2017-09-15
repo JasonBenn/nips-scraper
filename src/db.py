@@ -12,7 +12,7 @@ class DB:
     self.cursor.execute('''
       CREATE TABLE IF NOT EXISTS nips_papers (
         id SERIAL PRIMARY KEY,
-        title TEXT UNIQUE
+        title TEXT UNIQUE ON CONFLICT DO NOTHING
       );
 
       CREATE TABLE IF NOT EXISTS google_search_results (
