@@ -4,7 +4,7 @@ Like most people I'm just trying to figure out how to best spend my time at this
 
 Most of the papers aren't on the first page of Google results, which I take to mean that they haven't been published yet, and I'm also working around a daily rate limit of a few hundred searches from Google's API. Currently I have 68/680.
 
-Watch or star this repo, I'll be updating it frequently! Contributions/feature requests welcome, of course.
+Watch or star this repo, I'll be updating it frequently/daily! Contributions/feature requests welcome, of course.
 
 This program scrapes Arxiv for paper abstracts, authors, categories, dumps them into a [Postgres database](https://github.com/JasonBenn/nips-scraper/blob/master/dump.sql), and exports them to [abstracts.md](https://github.com/JasonBenn/nips-scraper/blob/master/abstracts.md) (which is nicer for reading on a Kindle).
 
