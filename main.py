@@ -9,6 +9,7 @@ from src.db import DB
 from src.arxiv_etl import ArxivETL
 from src.google_etl import GoogleETL
 from src.nips_etl import NipsETL
+from src.utils import RateLimitError
 
 
 NUM_NIPS_17_PAPERS = 680
@@ -30,17 +31,20 @@ def scrape(start_index):
   all_nips_papers_missing_abstracts = db.all_nips_papers_missing_abstracts()
   print "found %i nips papers missing abstracts" % len(all_nips_papers_missing_abstracts)
 
-  for i, title in all_nips_papers_missing_abstracts[start_index:]:
-    print "fetching #%i: %s" % (i, title)
-    response = google.extract(title)
-    search_result = google.transform(response)
-    google.load(i, search_result)
+  for record in all_nips_papers_missing_abstracts:
+    print "fetching #%d: %s" % (record['id'], record['title'])
+    try:
+      google_response = google.extract(record["title"])
+    except RateLimitError:
+      break
+    search_result = google.transform(record['id'], google_response)
+    google.load(search_result)
 
-    if search_result:
+    if search_result["abstract_url"]:
       print "found search result!"
-      response = arxiv.extract(search_result["abstract_url"])
-      abstract = arxiv.transform(response)
-      arxiv.load(i, abstract)
+      arxiv_response = arxiv.extract(search_result["abstract_url"])
+      abstract = arxiv.transform(arxiv_response)
+      arxiv.load(record["id"], abstract)
 
   db.to_md("abstracts.md")
 
@@ -50,3 +54,10 @@ if __name__ == '__main__':
   args = parser.parse_args()
   start_index = int(args.start_index)
   scrape(start_index)
+
+# INSERT INTO nips_papers (title) VALUES ('sup');
+
+# INSERT INTO google_search_results (nips_paper_id, abstract_url, pdf_url, fetch_attempts)
+# VALUES (5, 'abs_url', 'pdf_url', 1)
+# ON CONFLICT (nips_paper_id) DO UPDATE SET fetch_attempts =
+#   (SELECT fetch_attempts from google_search_results WHERE nips_paper_id = 1) + 1;

@@ -1,18 +1,22 @@
+# -*- coding: utf-8 -*-
+
 import psycopg2
+from psycopg2 import sql
 import io
+from psycopg2.extras import RealDictCursor
 
 
 class DB:
   def __init__(self):
     self.conn = psycopg2.connect("dbname=nips_scraper user=jasonbenn")
-    self.cursor = self.conn.cursor()
+    self.cursor = self.conn.cursor(cursor_factory=RealDictCursor)
     self.load_schema()
 
   def load_schema(self):
     self.cursor.execute('''
       CREATE TABLE IF NOT EXISTS nips_papers (
         id SERIAL PRIMARY KEY,
-        title TEXT UNIQUE ON CONFLICT DO NOTHING
+        title TEXT UNIQUE
       );
 
       CREATE TABLE IF NOT EXISTS google_search_results (
@@ -33,47 +37,64 @@ class DB:
     ''')
 
   def all(self, table):
-    return self.cursor.execute("SELECT * FROM %s;", (table,)).fetchall()
+    select_all = sql.SQL("SELECT * FROM {};").format(sql.Identifier(table))
+    self.cursor.execute(select_all)
+    return self.cursor.fetchall()
 
-  def all_nips_papers_missing_abstracts(self, table):
-    return self.cursor.execute('''
-      SELECT * FROM nips_papers
+  def all_nips_papers_missing_abstracts(self):
+    self.cursor.execute('''
+      SELECT abstract, abstract_url, authors, category, nips_papers.id, pdf_url, title FROM nips_papers
       LEFT JOIN abstracts ON abstracts.nips_paper_id=nips_papers.id
-      JOIN google_search_results ON google_search_results.nips_paper_id=nips_papers.id
+      LEFT JOIN google_search_results ON google_search_results.nips_paper_id=nips_papers.id
       WHERE abstract IS NULL
       ORDER BY fetch_attempts ASC;
-    ''').fetchall()
+    ''')
+    return self.cursor.fetchall()
 
-  def insert(self, table, records):
-    for record in records:
-      keys = ", ".join(record.keys())
-      values = ", ".join(record.values())
-      self.cursor.execute("INSERT INTO %(table) ($(keys)) VALUES (%(values));", { "table": table, "keys": keys, "values": values })
+  def insert_nips_paper(self, title):
+    self.cursor.execute("INSERT INTO nips_papers (title) VALUES (%s) ON CONFLICT DO NOTHING;", (title,))
     self.conn.commit()
 
-  def upsert_search_result(self, table, search_result):
+  def insert_abstract(self, record):
     self.cursor.execute('''
-      INSERT INTO google_search_results (nips_paper_id, abstract_url, pdf_url, fetch_attempts)
-      VALUES (%(nips_paper_id), %(abstract_url), %(pdf_url), 1)
-      ON CONFLICT UPDATE (fetch_attempts)
-      VALUES (
-        (SELECT fetch_attempts from google_search_results WHERE nips_paper_id = %(nips_paper_id)) + 1
-      )
-    ''', search_result)
+      INSERT INTO abstracts (nips_paper_id, abstract, authors, category)
+      VALUES (%(nips_paper_id)s, %(abstract)s, %(authors)s, %(category)s) ON CONFLICT DO NOTHING;
+    ''', record)
+    self.conn.commit()
+
+  def upsert_search_result(self, search_result):
+    try:
+      self.cursor.execute('''
+        INSERT INTO google_search_results (nips_paper_id, abstract_url, pdf_url, fetch_attempts)
+        VALUES (%(nips_paper_id)s, %(abstract_url)s, %(pdf_url)s, 1)
+        ON CONFLICT (nips_paper_id) DO UPDATE SET fetch_attempts = (
+          (SELECT fetch_attempts from google_search_results WHERE nips_paper_id = %(nips_paper_id)s) + 1
+        )
+      ''', search_result)
+    except KeyError:
+      print search_result
+    self.conn.commit()
 
   def to_md(self, filename):
     print "dumping db to md"
 
-    abstracts = self.cursor.execute('''
-      SELECT * FROM nips_papers
+    self.cursor.execute('''
+      SELECT abstract, abstract_url, authors, category, nips_papers.id, pdf_url, title FROM nips_papers
       LEFT JOIN abstracts ON abstracts.nips_paper_id=nips_papers.id
-    ''').fetchall()
+      LEFT JOIN google_search_results ON google_search_results.nips_paper_id=nips_papers.id
+      ORDER BY nips_papers.id ASC;
+    ''')
+    abstracts = self.cursor.fetchall()
 
     print "found %i abstracts" % len(abstracts)
 
-    with io.open(filename, encoding="utf8") as f:
+    with io.open(filename, 'w', encoding="utf8") as f:
       for a in abstracts:
-        f.write(u"### #%s: %s\n" % (a["nips_papers.id"], a["title"]))
-        f.write(u"[Abstract](%s), [PDF](%s)\n" % (a["abstract_url"], a["pdf_url"]))
-        f.write(u"Authors: %s" % a["authors"])
-        f.write(a["abstract"] + u"\n\n")
+        f.write(u"### #%s: %s\n" % (a["id"], a["title"].decode('utf8', 'ignore')))
+        if a["authors"]:
+          f.write(u"_%s_\n" % a["authors"].decode('utf8', 'ignore'))
+        if a["abstract"]:
+          f.write(u"%s\n" % a["abstract"].decode('utf8', 'ignore'))
+        if a["abstract_url"]:
+          f.write(u"[Abstract](%s), [PDF](%s)\n" % (a["abstract_url"], a["pdf_url"]))
+        f.write(u"\n")

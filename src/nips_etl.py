@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import requests
 import json
 from bs4 import BeautifulSoup
@@ -17,4 +19,5 @@ class NipsETL:
     return [title.text for title in parsed_html.select("p > b")]
 
   def load(self, titles):
-    self.db.insert('nips_papers', [{ "title": title } for title in titles])
+    for title in titles:
+      self.db.insert_nips_paper(title)
