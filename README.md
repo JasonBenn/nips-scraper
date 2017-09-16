@@ -1,17 +1,17 @@
 # NIPScraper - scraper for NIPS 2017 paper abstracts
 
-[NIPS 2017 Accepted Papers](https://nips.cc/Conferences/2017/AcceptedPapersInitial) were released this week -- hopefully this data will help you figure out which posters to find, which talks to see, and which workshops to attend. Not to worry, there's only... 680 of them.
+Like most people I'm just trying to figure out how to best spend my time at this conference. Figured that collecting and reading [all of the abstracts](https://nips.cc/Conferences/2017/AcceptedPapersInitial) (680 of them!) would help me find the most relevant talks/posters/workshops for my work. I'm hoping that reading all this will make it easier to identify some promising research directions, too.
 
-This program scrapes Arxiv for paper abstracts, authors, categories, dumps them into a [Postgres database](https://github.com/JasonBenn/nips-scraper/blob/master/dump.sql), and exports them to [abstracts.md](https://github.com/JasonBenn/nips-scraper/blob/master/abstracts.md) (which is nice for reading on your Kindle).
+Most of the papers aren't on the first page of Google results, which I take to mean that they haven't been published yet, and I'm also working around a daily rate limit of a few hundred searches from Google's API. Currently I have 68/680.
 
-Many of these papers haven't been published to Arxiv yet. Watch this repo for updates, I'll be re-scraping and updating frequently.
+Watch or star this repo, I'll be updating it frequently! Contributions/feature requests welcome, of course.
 
-Current abstract scraping progress: 68/680.
+This program scrapes Arxiv for paper abstracts, authors, categories, dumps them into a [Postgres database](https://github.com/JasonBenn/nips-scraper/blob/master/dump.sql), and exports them to [abstracts.md](https://github.com/JasonBenn/nips-scraper/blob/master/abstracts.md) (which is nicer for reading on a Kindle).
 
 
 ## Related...
 
-I've also got some simple JS one-liners that copy NIPS workshop and tutorial information to your clipboard so that you can paste them into a spreadsheet. Find the spreadsheet [here](https://docs.google.com/spreadsheets/d/1gQpSSjoypqtTSPaJdLvT8UsGEgjJXZSZc0KkLlSDLFk/edit?usp=sharing) (the snippets are saved as comments).
+I also made some simple JS one-liners that copy NIPS workshop and tutorial information to your clipboard so that you can paste them into a spreadsheet. Find the spreadsheet [here](https://docs.google.com/spreadsheets/d/1gQpSSjoypqtTSPaJdLvT8UsGEgjJXZSZc0KkLlSDLFk/edit?usp=sharing) (the snippets are saved as comments).
 
 
 ## Contributing
@@ -22,4 +22,3 @@ If you'd like to run it yourself, you'll need a Google Custom Search API account
 ```
 python main.py
 ```
-
