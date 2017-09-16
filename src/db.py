@@ -92,9 +92,9 @@ class DB:
       for a in abstracts:
         f.write(u"### #%s: %s\n" % (a["id"], a["title"].decode('utf8', 'ignore')))
         if a["authors"]:
-          f.write(u"_%s_\n" % a["authors"].decode('utf8', 'ignore'))
+          f.write(u"_%s_\n\n" % a["authors"].decode('utf8', 'ignore'))
         if a["abstract"]:
           f.write(u"%s\n" % a["abstract"].decode('utf8', 'ignore'))
         if a["abstract_url"]:
-          f.write(u"[Abstract](%s), [PDF](%s)\n" % (a["abstract_url"], a["pdf_url"]))
+          f.write(u"[Abstract](%s), [PDF](%s)\n\n" % (a["abstract_url"], a["pdf_url"]))
         f.write(u"\n")
