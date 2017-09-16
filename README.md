@@ -11,7 +11,7 @@ Current abstract scraping progress: 68/680.
 
 ## Related...
 
-I've also got some simple JS one-liners that copy NIPS workshop and tutorial information to your clipboard so that you can paste them into a spreadsheet. Find it [here]().
+I've also got some simple JS one-liners that copy NIPS workshop and tutorial information to your clipboard so that you can paste them into a spreadsheet. Find the spreadsheet [here](https://docs.google.com/spreadsheets/d/1gQpSSjoypqtTSPaJdLvT8UsGEgjJXZSZc0KkLlSDLFk/edit?usp=sharing) (the snippets are saved as comments).
 
 
 ## Contributing
