@@ -3,6 +3,9 @@
 ### #2: Concentration of Multilinear Functions of the Ising Model with Applications to Network Data
 
 ### #3: Deep Subspace Clustering Network
+_Pan Ji,  Tong Zhang,  Hongdong Li,  Mathieu Salzmann,  Ian Reid_
+
+We present a novel deep neural network architecture for unsupervised subspace clustering. This architecture is built upon deep auto-encoders, which non-linearly map the input data into a latent space. Our key idea is to introduce a novel self-expressive layer between the encoder and the decoder to mimic the "self-expressiveness" property that has proven effective in traditional subspace clustering. Being differentiable, our new self-expressive layer provides a simple but effective way to learn pairwise affinities between all data points through a standard back-propagation procedure. Being nonlinear, our neural-network based method is able to cluster data points having complex (often nonlinear) structures. We further propose pre-training and fine-tuning strategies that let us effectively learn the parameters of our subspace clustering networks. Our experiments show that the proposed method significantly outperforms the state-of-the-art unsupervised subspace clustering methods.
 
 ### #4: Attentional Pooling for Action Recognition
 
@@ -123,7 +126,7 @@ This paper proposes the novel Pose Guided Person Generation Network (PG$^2$) tha
 [Abstract](https://arxiv.org/abs/1705.09368), [PDF](https://arxiv.org/pdf/1705.09368)
 
 
-### #41: Inference in Graphical Models via Semidefinite Programming Hierarchies
+### #41: Inference in Graphical Models via Semidefinite Programming Hierarchies 
 
 ### #42: Variable Importance Using Decision Trees
 
@@ -819,7 +822,7 @@ Autoregressive models are among the best performing neural density estimators. W
 
 ### #243: Sparse Approximate Conic Hulls
 
-### #244: Rigorous Dynamics and Consistent Estimation in Arbitrarily Conditioned Linear Systems
+### #244: Rigorous Dynamics and Consistent Estimation in Arbitrarily Conditioned Linear Systems 
 
 ### #245: Toward Goal-Driven Neural Network Models for the Rodent Whisker-Trigeminal System
 
@@ -1010,7 +1013,7 @@ We propose a DC proximal Newton algorithm for solving nonconvex regularized spar
 
 ### #336: Model-based Bayesian inference of neural activity and connectivity from all-optical interrogation of a neural circuit
 
-### #337: Gaussian process based nonlinear latent structure discovery in multivariate spike train data
+### #337: Gaussian process based nonlinear latent structure discovery in multivariate spike train data 
 
 ### #338: Neural system identification for large populations separating "what" and "where"
 
@@ -1250,7 +1253,7 @@ We propose a DC proximal Newton algorithm for solving nonconvex regularized spar
 
 ### #456: Affine-Invariant Online Optimization
 
-### #457: Beyond Worst-case: A Probabilistic Analysis of Affine Policies in Dynamic Optimization
+### #457: Beyond Worst-case: A Probabilistic Analysis of Affine Policies in Dynamic Optimization 
 
 ### #458: A unified approach to interpreting model predictions
 

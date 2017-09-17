@@ -233,6 +233,7 @@ COPY abstracts (id, nips_paper_id, abstract, authors, category) FROM stdin;
 67	222	We study the problem of learning probabilistic first-order logical rules for knowledge base reasoning. This learning problem is difficult because it requires learning the parameters in a continuous space as well as the structure in a discrete space. We propose a framework, Neural Logic Programming, that combines the parameter and structure learning of first-order logical rules in an end-to-end differentiable model. This approach is inspired by a recently-developed differentiable logic called TensorLog, where inference tasks can be compiled into sequences of differentiable operations. We design a neural controller system that learns to compose these operations. Empirically, our method obtains state-of-the-art results on multiple knowledge base benchmark datasets, including Freebase and WikiMovies.	Fan Yang,  Zhilin Yang,  William W. Cohen	Computer Science > Artificial Intelligence
 68	224	Autoregressive models are among the best performing neural density estimators. We describe an approach for increasing the flexibility of an autoregressive model, based on modelling the random numbers that the model uses internally when generating data. By constructing a stack of autoregressive models, each modelling the random numbers of the next model in the stack, we obtain a type of normalizing flow suitable for density estimation, which we call Masked Autoregressive Flow. This type of flow is closely related to Inverse Autoregressive Flow and is a generalization of Real NVP. Masked Autoregressive Flow achieves state-of-the-art performance in a range of general-purpose density estimation tasks.	George Papamakarios,  Theo Pavlakou,  Iain Murray	Statistics > Machine Learning
 69	263	We propose a DC proximal Newton algorithm for solving nonconvex regularized sparse learning problems in high dimensions. Our proposed algorithm integrates the proximal Newton algorithm with multi-stage convex relaxation based on difference of convex (DC) programming, and enjoys both strong computational and statistical guarantees. Specifically, by leveraging a sophisticated characterization of sparse modeling structures/assumptions (i.e., local restricted strong convexity and Hessian smoothness), we prove that within each stage of convex relaxation, our proposed algorithm achieves (local) quadratic convergence, and eventually obtains a sparse approximate local optimum with optimal statistical properties after only a few convex relaxations. Numerical experiments are provided to support our theory.	Xingguo Li,  Lin F. Yang,  Jason Ge,  Jarvis Haupt,  Tong Zhang,  Tuo Zhao	Statistics > Machine Learning
+70	3	We present a novel deep neural network architecture for unsupervised subspace clustering. This architecture is built upon deep auto-encoders, which non-linearly map the input data into a latent space. Our key idea is to introduce a novel self-expressive layer between the encoder and the decoder to mimic the "self-expressiveness" property that has proven effective in traditional subspace clustering. Being differentiable, our new self-expressive layer provides a simple but effective way to learn pairwise affinities between all data points through a standard back-propagation procedure. Being nonlinear, our neural-network based method is able to cluster data points having complex (often nonlinear) structures. We further propose pre-training and fine-tuning strategies that let us effectively learn the parameters of our subspace clustering networks. Our experiments show that the proposed method significantly outperforms the state-of-the-art unsupervised subspace clustering methods.	Pan Ji,  Tong Zhang,  Hongdong Li,  Mathieu Salzmann,  Ian Reid	Computer Science > Computer Vision and Pattern Recognition
 \.
 
 
@@ -240,7 +241,7 @@ COPY abstracts (id, nips_paper_id, abstract, authors, category) FROM stdin;
 -- Name: abstracts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jasonbenn
 --
 
-SELECT pg_catalog.setval('abstracts_id_seq', 69, true);
+SELECT pg_catalog.setval('abstracts_id_seq', 70, true);
 
 
 --
@@ -248,7 +249,7 @@ SELECT pg_catalog.setval('abstracts_id_seq', 69, true);
 --
 
 COPY google_search_results (id, nips_paper_id, abstract_url, pdf_url, fetch_attempts) FROM stdin;
-256	133	\N	\N	5
+261	138	\N	\N	7
 211	88	https://arxiv.org/abs/1705.08551	https://arxiv.org/pdf/1705.08551	1
 215	92	https://arxiv.org/abs/1705.05603	https://arxiv.org/pdf/1705.05603	1
 217	94	https://arxiv.org/abs/1706.02515	https://arxiv.org/pdf/1706.02515	1
@@ -276,7 +277,7 @@ COPY google_search_results (id, nips_paper_id, abstract_url, pdf_url, fetch_atte
 228	105	https://arxiv.org/abs/1703.07326	https://arxiv.org/pdf/1703.07326	1
 229	106	https://arxiv.org/abs/1705.08006	https://arxiv.org/pdf/1705.08006	1
 231	108	https://arxiv.org/abs/1702.03828	https://arxiv.org/pdf/1702.03828	1
-214	91	\N	\N	5
+221	98	\N	\N	7
 233	110	https://arxiv.org/abs/1704.00648	https://arxiv.org/pdf/1704.00648	1
 237	114	https://arxiv.org/abs/1705.07041	https://arxiv.org/pdf/1705.07041	1
 239	116	https://arxiv.org/abs/1705.08272	https://arxiv.org/pdf/1705.08272	1
@@ -290,77 +291,77 @@ COPY google_search_results (id, nips_paper_id, abstract_url, pdf_url, fetch_atte
 258	135	https://arxiv.org/abs/1706.05295	https://arxiv.org/pdf/1706.05295	1
 259	136	https://arxiv.org/abs/1706.05259	https://arxiv.org/pdf/1706.05259	1
 260	137	https://arxiv.org/abs/1708.03741	https://arxiv.org/pdf/1708.03741	1
-247	124	\N	\N	5
-249	126	\N	\N	5
-213	90	\N	\N	5
-212	89	\N	\N	5
-210	87	\N	\N	5
-209	86	\N	\N	5
-250	127	\N	\N	5
-255	132	\N	\N	5
+250	127	\N	\N	7
+255	132	\N	\N	7
+216	93	\N	\N	7
+214	91	\N	\N	7
+213	90	\N	\N	7
+212	89	\N	\N	7
+256	133	\N	\N	7
+257	134	\N	\N	7
 114	73	https://arxiv.org/abs/1706.00826	https://arxiv.org/pdf/1706.00826	1
 115	74	http://arxiv.org/abs/1709.03749	http://arxiv.org/pdf/1709.03749	1
 116	75	https://arxiv.org/abs/1705.11041	https://arxiv.org/pdf/1705.11041	1
-208	85	\N	\N	5
-206	83	\N	\N	5
-257	134	\N	\N	5
-261	138	\N	\N	5
-56	41	\N	\N	8
-235	112	\N	\N	5
-58	43	\N	\N	9
-236	113	\N	\N	5
-238	115	\N	\N	5
-243	120	\N	\N	5
-244	121	\N	\N	5
-234	111	\N	\N	5
-245	122	\N	\N	5
-62	47	\N	\N	9
-232	109	\N	\N	5
-230	107	\N	\N	5
-118	77	\N	\N	9
-1	1	\N	\N	10
-50	35	\N	\N	9
-43	28	\N	\N	9
-4	3	\N	\N	10
-207	84	\N	\N	5
-61	46	\N	\N	9
-63	48	\N	\N	9
-5	4	\N	\N	9
-44	29	\N	\N	9
-112	71	\N	\N	9
-6	5	\N	\N	9
-7	6	\N	\N	9
-3	2	\N	\N	9
-113	72	\N	\N	9
-111	70	\N	\N	9
-22	8	\N	\N	9
-117	76	\N	\N	9
-57	42	\N	\N	9
-54	39	\N	\N	9
-42	27	\N	\N	9
-23	9	\N	\N	9
-24	10	\N	\N	9
-36	21	\N	\N	9
-37	22	\N	\N	9
-38	23	\N	\N	9
-40	25	\N	\N	9
-52	37	\N	\N	9
-47	32	\N	\N	9
-48	33	\N	\N	9
-49	34	\N	\N	9
-369	169	\N	\N	3
-246	123	\N	\N	5
-224	101	\N	\N	5
-223	100	\N	\N	5
-221	98	\N	\N	5
-216	93	\N	\N	5
+210	87	\N	\N	7
+208	85	\N	\N	7
+56	41	\N	\N	10
+58	43	\N	\N	11
+61	46	\N	\N	11
+238	115	\N	\N	7
+62	47	\N	\N	11
+243	120	\N	\N	7
+244	121	\N	\N	7
+245	122	\N	\N	7
+246	123	\N	\N	7
+236	113	\N	\N	7
+247	124	\N	\N	7
+5	4	\N	\N	11
+235	112	\N	\N	7
+234	111	\N	\N	7
+57	42	\N	\N	11
+1	1	\N	\N	12
+47	32	\N	\N	11
+369	169	\N	\N	5
+209	86	\N	\N	7
+63	48	\N	\N	11
+6	5	\N	\N	11
+7	6	\N	\N	11
+48	33	\N	\N	11
+117	76	\N	\N	11
+22	8	\N	\N	11
+23	9	\N	\N	11
+37	22	\N	\N	11
+118	77	\N	\N	11
+113	72	\N	\N	11
+24	10	\N	\N	11
+50	35	\N	\N	11
+4	3	\N	\N	12
+43	28	\N	\N	11
+44	29	\N	\N	11
+3	2	\N	\N	11
+36	21	\N	\N	11
+38	23	\N	\N	11
+40	25	\N	\N	11
+52	37	\N	\N	11
+54	39	\N	\N	11
+42	27	\N	\N	11
+49	34	\N	\N	11
+111	70	\N	\N	11
+112	71	\N	\N	11
+370	170	\N	\N	5
+249	126	\N	\N	7
+232	109	\N	\N	7
+230	107	\N	\N	7
+224	101	\N	\N	7
+223	100	\N	\N	7
+371	171	\N	\N	5
 374	174	https://arxiv.org/abs/1705.05427	https://arxiv.org/pdf/1705.05427	1
-254	131	\N	\N	5
-373	173	\N	\N	4
-371	171	\N	\N	3
-370	170	\N	\N	3
-372	172	\N	\N	4
-375	175	\N	\N	4
+207	84	\N	\N	7
+254	131	\N	\N	7
+372	172	\N	\N	6
+373	173	\N	\N	6
+375	175	\N	\N	6
+206	83	\N	\N	7
 376	176	https://arxiv.org/abs/1705.04405	https://arxiv.org/pdf/1705.04405	1
 378	178	https://arxiv.org/abs/1706.04732	https://arxiv.org/pdf/1706.04732	1
 385	185	https://arxiv.org/abs/1702.08651	https://arxiv.org/pdf/1702.08651	1
@@ -384,36 +385,36 @@ COPY google_search_results (id, nips_paper_id, abstract_url, pdf_url, fetch_atte
 421	221	https://arxiv.org/abs/1709.01249	https://arxiv.org/pdf/1709.01249	1
 422	222	https://arxiv.org/abs/1702.08367	https://arxiv.org/pdf/1702.08367	1
 424	224	https://arxiv.org/abs/1705.07057	https://arxiv.org/pdf/1705.07057	1
+410	210	\N	\N	5
+413	213	\N	\N	5
+414	214	\N	\N	5
+420	220	\N	\N	5
+423	223	\N	\N	5
+425	225	\N	\N	5
+426	226	\N	\N	5
+427	227	\N	\N	5
+384	184	\N	\N	5
+387	187	\N	\N	5
+388	188	\N	\N	5
+391	191	\N	\N	5
+394	194	\N	\N	5
+395	195	\N	\N	5
+396	196	\N	\N	5
+397	197	\N	\N	5
+398	198	\N	\N	5
+399	199	\N	\N	5
+401	201	\N	\N	5
+402	202	\N	\N	5
+403	203	\N	\N	5
+404	204	\N	\N	5
 535	263	https://arxiv.org/abs/1706.06066	https://arxiv.org/pdf/1706.06066	1
-410	210	\N	\N	3
-413	213	\N	\N	3
-414	214	\N	\N	3
-420	220	\N	\N	3
-423	223	\N	\N	3
-425	225	\N	\N	3
-426	226	\N	\N	3
-427	227	\N	\N	3
-384	184	\N	\N	3
-387	187	\N	\N	3
-388	188	\N	\N	3
-391	191	\N	\N	3
-394	194	\N	\N	3
-395	195	\N	\N	3
-396	196	\N	\N	3
-397	197	\N	\N	3
-398	198	\N	\N	3
-399	199	\N	\N	3
-401	201	\N	\N	3
-402	202	\N	\N	3
-403	203	\N	\N	3
-404	204	\N	\N	3
-409	209	\N	\N	3
-377	177	\N	\N	4
-379	179	\N	\N	4
-380	180	\N	\N	4
-381	181	\N	\N	4
-382	182	\N	\N	4
-383	183	\N	\N	4
+409	209	\N	\N	5
+377	177	\N	\N	6
+379	179	\N	\N	6
+380	180	\N	\N	6
+381	181	\N	\N	6
+382	182	\N	\N	6
+383	183	\N	\N	6
 \.
 
 
@@ -421,7 +422,7 @@ COPY google_search_results (id, nips_paper_id, abstract_url, pdf_url, fetch_atte
 -- Name: google_search_results_id_seq; Type: SEQUENCE SET; Schema: public; Owner: jasonbenn
 --
 
-SELECT pg_catalog.setval('google_search_results_id_seq', 633, true);
+SELECT pg_catalog.setval('google_search_results_id_seq', 829, true);
 
 
 --
