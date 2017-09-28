@@ -2,7 +2,7 @@
 
 Like most people I'm just trying to figure out how to best spend my time at this conference. Figured that collecting and reading [all of the abstracts](https://nips.cc/Conferences/2017/AcceptedPapersInitial) (680 of them!) would help me find the most relevant talks/posters/workshops for my work. I'm hoping that reading all this will make it easier to identify some promising research directions, too.
 
-Most of the papers aren't on the first page of Google results, which I take to mean that they haven't been published yet, and I'm also working around a daily rate limit of a few hundred searches from Google's API. Currently I have 69/680.
+Most of the papers aren't on the first page of Google results, which I take to mean that they haven't been published yet, and I'm also working around a daily rate limit of a few hundred searches from Google's API. Currently I have 297/680.
 
 Watch or star this repo, I'll be updating it frequently/daily! Contributions/feature requests welcome, of course.
 
