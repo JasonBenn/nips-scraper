@@ -22,3 +22,5 @@ If you'd like to run it yourself, you'll need a Google Custom Search API account
 ```
 python main.py
 ```
+
+Also: wow, I really should have used https://docs.scrapy.org/en/latest/.
