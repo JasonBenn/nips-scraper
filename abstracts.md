@@ -1104,6 +1104,9 @@ We establish a new connection between value and policy based reinforcement learn
 
 
 ### #267: Premise Selection for Theorem Proving by Deep Graph Embedding
+_Mingzhe Wang,  Yihe Tang,  Jian Wang,  Jia Deng_
+
+We propose a deep learning-based approach to the problem of premise selection: selecting mathematical statements relevant for proving a given conjecture. We represent a higher-order logic formula as a graph that is invariant to variable renaming but still fully preserves syntactic and semantic information. We then embed the graph into a vector via a novel embedding method that preserves the information of edge ordering. Our approach achieves state-of-the-art results on the HolStep dataset, improving the classification accuracy from 83% to 90.3%.
 
 ### #268: A Bayesian Data Augmentation Approach for Learning Deep Models
 
@@ -2093,6 +2096,9 @@ Existing Markov Chain Monte Carlo (MCMC) methods are either based on general-pur
 ### #498: Saliency-based Sequential Image Attention with Multiset Prediction
 
 ### #499: Variational Inference for Gaussian Process Models with Linear Complexity
+_Chris Lloyd,  Tom Gunter,  Michael A. Osborne,  Stephen J. Roberts_
+
+We present the first fully variational Bayesian inference scheme for continuous Gaussian-process-modulated Poisson processes. Such point processes are used in a variety of domains, including neuroscience, geo-statistics and astronomy, but their use is hindered by the computational cost of existing inference schemes. Our scheme: requires no discretisation of the domain; scales linearly in the number of observed events; and is many orders of magnitude faster than previous sampling based approaches. The resulting algorithm is shown to outperform standard methods on synthetic examples, coal mining disaster data and in the prediction of Malaria incidences in Kenya.
 
 ### #500: K-Medoids For K-Means Seeding
 _James Newling,  François Fleuret_
@@ -2106,6 +2112,9 @@ We run experiments showing that algorithm clarans (Ng et al., 2005) finds better
 ### #502: Online Learning with Transductive Regret
 
 ### #503: Riemannian approach to batch normalization
+_Minhyung Cho,  Jaehyung Lee_
+
+Batch Normalization (BN) has proven to be an effective algorithm for deep neural network training by normalizing the input to each neuron and reducing the internal covariate shift. The space of weight vectors in the BN layer can be naturally interpreted as a Riemannian manifold, which is invariant to linear scaling of weights. Following the intrinsic geometry of this manifold provides a new learning rule that is more efficient and easier to analyze. We also propose intuitive and effective gradient clipping and regularization methods for the proposed algorithm by utilizing the geometry of the manifold. The resulting algorithm consistently outperforms the original BN on various types of network architectures and datasets.
 
 ### #504: Self-supervised Learning of Motion Capture
 
