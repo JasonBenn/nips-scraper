@@ -1,2 +1,3 @@
 keys
 db.sqlite
+*.pyc
