@@ -12,6 +12,9 @@ We present a novel deep neural network architecture for unsupervised subspace cl
 ### #5: On the Consistency of Quick Shift
 
 ### #6: Rethinking Feature Discrimination and Polymerization for Large-scale Recognition
+_Yu Liu,  Hongyang Li,  Xiaogang Wang_
+
+Feature matters. How to train a deep network to acquire discriminative features across categories and polymerized features within classes has always been at the core of many computer vision tasks, specially for large-scale recognition systems where test identities are unseen during training and the number of classes could be at million scale. In this paper, we address this problem based on the simple intuition that the cosine distance of features in high-dimensional space should be close enough within one class and far away across categories. To this end, we proposed the congenerous cosine (COCO) algorithm to simultaneously optimize the cosine similarity among data. It inherits the softmax property to make inter-class features discriminative as well as shares the idea of class centroid in metric learning. Unlike previous work where the center is a temporal, statistical variable within one mini-batch during training, the formulated centroid is responsible for clustering inner-class features to enforce them polymerized around the network truncus. COCO is bundled with discriminative training and learned end-to-end with stable convergence. Experiments on five benchmarks have been extensively conducted to verify the effectiveness of our approach on both small-scale classification task and large-scale human recognition problem.
 
 ### #7: Breaking the Nonsmooth Barrier: A Scalable Parallel Method for Composite Optimization
 _Fabian Pedregosa,  Rémi Leblond,  Simon Lacoste-Julien_
@@ -23,6 +26,9 @@ Due to their simplicity and excellent performance, parallel asynchronous variant
 ### #8: Dual-Agent GANs for Photorealistic and Identity Preserving Profile Face Synthesis
 
 ### #9: Dilated Recurrent Neural Networks
+_Shiyu Chang,  Yang Zhang,  Wei Han,  Mo Yu,  Xiaoxiao Guo,  Wei Tan,  Xiaodong Cui,  Michael Witbrock,  Mark Hasegawa-Johnson,  Thomas Huang_
+
+Notoriously, learning with recurrent neural networks (RNNs) on long sequences is a difficult task. There are three major challenges: 1) extracting complex dependencies, 2) vanishing and exploding gradients, and 3) efficient parallelization. In this paper, we introduce a simple yet effective RNN connection structure, the DILATEDRNN, which simultaneously tackles all these challenges. The proposed architecture is characterized by multi-resolution dilated recurrent skip connections and can be combined flexibly with different RNN cells. Moreover, the DILATEDRNN reduces the number of parameters and enhances training efficiency significantly, while matching state-of-the-art performance (even with Vanilla RNN cells) in tasks involving very long-term dependencies. To provide a theory-based quantification of the architecture's advantages, we introduce a memory capacity measure - the mean recurrent length, which is more suitable for RNNs with long skip connections than existing measures. We rigorously prove the advantages of the DILATEDRNN over other recurrent neural architectures.
 
 ### #10: Hunt For The Unique, Stable, Sparse And Fast Feature Learning On Graphs
 
@@ -70,6 +76,9 @@ Obtaining enough labeled data to robustly train complex discriminative models is
 
 
 ### #25: Structured Embedding Models for Grouped Data
+_Maja Rudolph,  Francisco Ruiz,  Susan Athey,  David Blei_
+
+Word embeddings are a powerful approach for analyzing language, and exponential family embeddings (EFE) extend them to other types of data. Here we develop structured exponential family embeddings (S-EFE), a method for discovering embeddings that vary across related groups of data. We study how the word usage of U.S. Congressional speeches varies across states and party affiliation, how words are used differently across sections of the ArXiv, and how the co-purchase patterns of groceries can vary across seasons. Key to the success of our method is that the groups share statistical information. We develop two sharing strategies: hierarchical modeling and amortization. We demonstrate the benefits of this approach in empirical studies of speeches, abstracts, and shopping baskets. We show how S-EFE enables group-specific interpretation of word usage, and outperforms EFE in predicting held-out data.
 
 ### #26: A Linear-Time Kernel Goodness-of-Fit Test
 _Wittawat Jitkrittum,  Wenkai Xu,  Zoltan Szabo,  Kenji Fukumizu,  Arthur Gretton_
@@ -325,6 +334,9 @@ One of the key challenges of visual perception is to extract abstract models of 
 ### #86: Detrended Partial Cross Correlation for Brain Connectivity Analysis
 
 ### #87: Contrastive Learning for Image Captioning
+_Bo Dai,  Dahua Lin_
+
+Image captioning, a popular topic in computer vision, has achieved substantial progress in recent years. However, the distinctiveness of natural descriptions is often overlooked in previous work. It is closely related to the quality of captions, as distinctive captions are more likely to describe images with their unique aspects. In this work, we propose a new learning method, Contrastive Learning (CL), for image captioning. Specifically, via two constraints formulated on top of a reference model, the proposed method can encourage distinctiveness, while maintaining the overall quality of the generated captions. We tested our method on two challenging datasets, where it improves the baseline model by significant margins. We also showed in our studies that the proposed method is generic and can be used for models with various structures.
 
 ### #88: Safe Model-based Reinforcement Learning with Stability Guarantees
 _Felix Berkenkamp,  Matteo Turchetta,  Angela P. Schoellig,  Andreas Krause_
@@ -584,6 +596,9 @@ High network communication cost for synchronizing gradients and parameters is th
 
 
 ### #146: Learning Affinity via Spatial Propagation Networks
+_Sifei Liu,  Shalini De Mello,  Jinwei Gu,  Guangyu Zhong,  Ming-Hsuan Yang,  Jan Kautz_
+
+In this paper, we propose spatial propagation networks for learning the affinity matrix for vision tasks. We show that by constructing a row/column linear propagation model, the spatially varying transformation matrix exactly constitutes an affinity matrix that models dense, global pairwise relationships of an image. Specifically, we develop a three-way connection for the linear propagation model, which (a) formulates a sparse transformation matrix, where all elements can be the output from a deep CNN, but (b) results in a dense affinity matrix that effectively models any task-specific pairwise similarity matrix. Instead of designing the similarity kernels according to image features of two points, we can directly output all the similarities in a purely data-driven manner. The spatial propagation network is a generic framework that can be applied to many affinity-related tasks, including but not limited to image matting, segmentation and colorization, to name a few. Essentially, the model can learn semantically-aware affinity values for high-level vision tasks due to the powerful learning capability of the deep neural network classifier. We validate the framework on the task of refinement for image segmentation boundaries. Experiments on the HELEN face parsing and PASCAL VOC-2012 semantic segmentation tasks show that the spatial propagation network provides a general, effective and efficient solution for generating high-quality segmentation results.
 
 ### #147: Linear regression without correspondence
 _Daniel Hsu,  Kevin Shi,  Xiaorui Sun_
@@ -702,6 +717,9 @@ How detailed should we make the goals we prescribe to AI agents acting on our be
 
 
 ### #175: The Numerics of GANs
+_Lars Mescheder,  Sebastian Nowozin,  Andreas Geiger_
+
+In this paper, we analyze the numerics of common algorithms for training Generative Adversarial Networks (GANs). Using the formalism of smooth two-player games we analyze the associated gradient vector field of GAN training objectives. Our findings suggest that the convergence of current algorithms suffers due to two factors: i) presence of eigenvalues of the Jacobian of the gradient vector field with zero real-part, and ii) eigenvalues with big imaginary part. Using these findings, we design a new algorithm that overcomes some of these limitations and has better convergence properties. Experimentally, we demonstrate its superiority on training common GAN architectures and show convergence on GAN architectures that are known to be notoriously hard to train.
 
 ### #176: Practical Bayesian Optimization for Model Fitting with Bayesian Adaptive Direct Search
 _Luigi Acerbi,  Wei Ji Ma_
@@ -793,6 +811,9 @@ We present a data-efficient reinforcement learning algorithm resistant to observ
 ### #198: Hiding Images in Plain Sight: Deep Steganography
 
 ### #199: Neural Program Meta-Induction
+_Jacob Devlin,  Rudy Bunel,  Rishabh Singh,  Matthew Hausknecht,  Pushmeet Kohli_
+
+Most recently proposed methods for Neural Program Induction work under the assumption of having a large set of input/output (I/O) examples for learning any underlying input-output mapping. This paper aims to address the problem of data and computation efficiency of program induction by leveraging information from related tasks. Specifically, we propose two approaches for cross-task knowledge transfer to improve program induction in limited-data scenarios. In our first proposal, portfolio adaptation, a set of induction models is pretrained on a set of related tasks, and the best model is adapted towards the new task using transfer learning. In our second approach, meta program induction, a $k$-shot learning approach is used to make a model generalize to new tasks without additional training. To test the efficacy of our methods, we constructed a new benchmark of programs written in the Karel programming language. Using an extensive experimental evaluation on the Karel benchmark, we demonstrate that our proposals dramatically outperform the baseline induction method that does not use knowledge transfer. We also analyze the relative performance of the two approaches and study conditions in which they perform best. In particular, meta induction outperforms all existing approaches under extreme data sparsity (when a very small number of examples are available), i.e., fewer than ten. As the number of available I/O examples increase (i.e. a thousand or more), portfolio adapted program induction becomes the best approach. For intermediate data sizes, we demonstrate that the combined method of adapted meta program induction has the strongest performance.
 
 ### #200: Bayesian Dyadic Trees and Histograms for  Regression
 _Stephanie van der Pas,  Veronika Rockova_
@@ -895,6 +916,9 @@ We present new practical local differentially private heavy hitters algorithms a
 
 
 ### #220: Large-Scale Quadratically Constrained Quadratic Program via Low-Discrepancy Sequences
+_Kinjal Basu,  Ankan Saha,  Shaunak Chatterjee_
+
+We consider the problem of solving a large-scale Quadratically Constrained Quadratic Program. Such problems occur naturally in many scientific and web applications. Although there are efficient methods which tackle this problem, they are mostly not scalable. In this paper, we develop a method that transforms the quadratic constraint into a linear form by sampling a set of low-discrepancy points. The transformed problem can then be solved by applying any state-of-the-art large-scale quadratic programming solvers. We show the convergence of our approximate solution to the true solution as well as some finite sample error bounds. Experimental results are also shown to prove scalability as well as improved quality of approximation in practice.
 
 ### #221: Inhomogoenous Hypergraph Clustering with Applications
 _Pan Li,  Olgica Milenkovic_
@@ -1428,6 +1452,9 @@ Machine learning systems trained on user-provided data are susceptible to data p
 
 
 ### #340: Eigen-Distortions of Hierarchical Representations
+_Alexander Berardino,  Johannes Ballé,  Valero Laparra,  Eero P. Simoncelli_
+
+We develop a method for comparing hierarchical image representations in terms of their ability to explain perceptual sensitivity in humans. Specifically, we utilize Fisher information to establish a model-derived prediction of sensitivity to local perturbations around a given natural image. For a given image, we compute the eigenvectors of the Fisher information matrix with largest and smallest eigenvalues, corresponding to the model-predicted most- and least-noticeable image distortions, respectively. For human subjects, we then measure the amount of each distortion that can be reliably detected when added to the image, and compare these thresholds to the predictions of the corresponding model. We use this method to test the ability of a variety of representations to mimic human perceptual sensitivity. We find that the early layers of VGG16, a deep neural network optimized for object recognition, provide a better match to human perception than later layers, and a better match than a 4-stage convolutional neural network (CNN) trained on a database of human ratings of distorted image quality. On the other hand, we find that simple models of early visual processing, incorporating one or more stages of local gain control, trained on the same database of distortion ratings, provide substantially better predictions of human sensitivity than both the CNN and all layers of VGG16.
 
 ### #341: Limitations on Variance-Reduction and Acceleration Schemes for Finite Sums Optimization
 _Yossi Arjevani_

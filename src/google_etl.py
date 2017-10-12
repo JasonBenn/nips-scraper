@@ -49,7 +49,8 @@ class GoogleETL:
         abstract["abstract_url"] = url
         abstract["pdf_url"] = url.replace("abs", "pdf")
     else:
-      print "----not found in----\n%s\n" % "\n".join(["\t" + r['title'] for r in results])
+      print "----not found in %s results----" % len(results)
+      # print "----not found in----\n%s\n" % "\n".join(["\t" + r['title'] for r in results])
 
     return abstract
 
